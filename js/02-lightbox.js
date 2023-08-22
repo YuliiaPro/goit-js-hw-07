@@ -20,4 +20,5 @@ const galleryList = (arr, container) => {
 
 galleryList(galleryItems, listEl);
 
-new SimpleLightbox(".gallery a", {captionDelay: 250, captionPosition:"button"});
+const modalInstance = new SimpleLightbox(".gallery a", {captionDelay: 250, captionPosition:"button"});
+console.log(modalInstance);

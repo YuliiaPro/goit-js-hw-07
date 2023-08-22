@@ -23,10 +23,10 @@ const galleryList = (arr, container) => {
  };
 
 const handleImgClick = (event) => {
+    event.preventDefault();
     if (event.currentTarget === event.target) {
     return;
     }
-    event.preventDefault();
     const modalInstance = basicLightbox.create(`
     <div class="modal">
     <img src="${event.target.getAttribute("data-source")}" width="1280">
@@ -37,8 +37,11 @@ const handleImgClick = (event) => {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             modalInstance.close();
+            document.removeEventListener('keydown', (event));
         }
+        
     });
+    
 };    
 
 galleryList(galleryItems, listEl);
