@@ -34,13 +34,14 @@ const handleImgClick = (event) => {
 `);
     modalInstance.show();
 
-    document.addEventListener('keydown', (event) => {
+    const onTargetEscapeKeydown = (event) => {
         if (event.key === 'Escape') {
             modalInstance.close();
-            document.removeEventListener('keydown', (event));
-        }
-        
-    });
+        };
+    };
+    document.addEventListener('keydown', onTargetEscapeKeydown);
+
+    document.removeEventListener('keydown', onTargetEscapeKeydown);
     
 };    
 
